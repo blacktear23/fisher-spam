@@ -1,0 +1,1 @@
+use classifier.db as the database name. SQLite3 only.

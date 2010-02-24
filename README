@@ -1,0 +1,31 @@
+= Usage
+
+require 'classifier'
+
+Classifier.provider = :sqlite
+
+Classifier.train(doc, category)
+Classifier.classify(doc) # return the category this doc belongs to.
+
+= Start Server
+
+In shell use rake task:
+
+$ rake server
+
+In ruby script:
+
+require 'classifier'
+Classifier::FisherSpamServer.run!
+
+FisherSpamServer is a sinatra web application.
+It response:
+get  / 			=> index.erb
+get  /train		=> train.erb
+get  /classify	=> classify.erb
+post /train		=> train fisher classifier
+post /classify	=> classify a document with trained fisher classifier
+
+= TODO
+
+system should be configurable.
